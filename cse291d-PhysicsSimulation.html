@@ -254,12 +254,22 @@ while (true) {
 
 
 												<li>
-													<b>The Expanding Polytope Algorithm(EPA)</b> Determining Penetration Depth
+													<b>The Expanding Polytope Algorithm(EPA)</b> Determining Penetration Depth<br>
+													After GJK, we get a simplex that contains the origin and EPA helps to get the MTV(minimum translation vector) vector along which we can translate an intersecting shape to separate it from the other one, specificlly, the length of MTV is the penetration depth.
+													Since the simplex contains the origin, and the point on the boundary of the Simplex that is closest to the origin is MTV. EPA finds the point by expanding inside the simplex-successively subdividing its edges with new vertices.<br>
+													The process is as following:
+													<ol>
+														<li>First, we find the edge of the simplex closest to the origin</li>
+														<li>Compute the support point in the Minkowski difference in a direction that is normal to the edge (i.e. perpendicular to it and pointing outside the polygon). </li>
+														<li>Then we split this edge by adding this support point to it. </li>
+														<li>We repeat these steps until the length and direction of the vector doesn’t change much. Once the algorithm converges, we have the MTV and the penetration depth.</li>
 
+													</ol>
+													<img src="images/cse291d/imgs/epa.png" alt="" class="image_center"/>
 												</li>
 											</ol>
 											<img src="images/cse291d/rock.gif" alt="" class="image_center"/>
-											<!--<img src="images/cse291d/gua.gif" alt="" class="image_center"/>-->
+											<img src="images/cse291d/gua.gif" alt="" class="image_center"/>
 										</li>
 									</ul>
 
@@ -271,10 +281,34 @@ while (true) {
 									<h2>Impulse Based Collision Response</h2>
 								</header>
 								<div class="content">
-									<!--<h2>Rotational Inertia</h2>-->
-									<!--<h3>Mirtich-Eberly algorithm</h3>-->
-									<!--<h4>BOX-Plane Collision</h4>-->
-									<!--<img src="images/cse291d/box-plane.gif" alt="" class="image_center"/>-->
+									<p>Impulse-based approach operates on the velocity of the bodies and not on the force or acceleration. This means the solver calculates and applies a direct change in the linear and angular velocities of the bodies, instead of calculating and applying corrective forces and relying on integration to then change the velocities. With impulse-based dynamics, the goal is to find the impulses that result in velocities that solve the constraints.
+									The general sequence of a simulation step using impulse-based dynamics is somewhat different from that of force-based engines:
+									<ul class="align-left">
+										<li>Compute all external forces.</li>
+										<li>Apply the forces and determine the resulting velocities</li>
+										<li>Calculate the constraint velocities based on the behavior functions.</li>
+										<li>Apply the constraint velocities and simulate the resulting motion.</li>
+									</ul>
+									First let's define the impulse of force \(J_F\) as
+									$$J_F =  \int_{t_0} ^{t_1} F dt$$
+									During a small time slice \( \langle t_0, t_1 \rangle \). The impulse of force corresponds to the difference of linear moments
+									$$\Delta p = p(t_1) - p(t_0) = J_F$$
+									while the impulsive torque of a force \(F\) applied in point \(r\) in the world space is defined as
+									$$J_{\tau} = (r - r_c) \times J_F$$
+									Like the impulse of force changes the linear momentum, the impulsive torque changes the angular momentum
+									$$\Delta b = b(t_1) - b(t_0) = J_{tau}$$
+
+									Next comes to how can we get impulse from collision process. As shown in the following figure, Object A and B collides at point P with relative position \(r^{AP}\) and \(r^{BP}\) and relative velocity as \(v ^{AB}\).
+									The normal vector for the collision can be defined as
+									$$v^{AB} \cdot n = (v ^{AP} - v^{BP}) \cdot n $$
+									 We can express the impulse with a single scalar \(j\) times the normal, giving us \( jn \). According to Newton's Third law, the opposite force is applied to the other entity.
+									The collision response equation for object can be derived by
+									$$v_2^{A} = v_1^{A} + \frac{j}{M^{A}} n$$
+									$$v_2^{B} = v_1^{B} - \frac{j}{M^{B}} n$$
+									where M is the center of mass, so we solve the scalar j as
+									$$j = \frac{-(1+e)v_1^{AB} \cdot n}{n \cdot n (\frac{1}{M^{A}} + \frac{1}{M^B})}$$
+
+									</p>
 
 								</div>
 							</section>
@@ -283,11 +317,15 @@ while (true) {
 								<header class="major">
 									<h2>Reference</h2>
 								</header>
-								<div class="align_left">
+								<div class="align-left">
 									<ol>
 										<li>Mirtich, Brian. "Fast and accurate computation of polyhedral mass properties." Journal of graphics tools 1.2 (1996): 31-50.</li>
 										<li>Wolfram MathWorld "Sphere-Sphere Intersection",  http://mathworld.wolfram.com/Sphere-SphereIntersection.html</li>
 										<li>gitbooks "AABB Plane", https://gdbooks.gitbooks.io/3dcollisions/content/Chapter2/static_aabb_plane.html</li>
+										<li>Bergen G. A fast and robust GJK implementation for collision detection of convex objects[J]. Journal of graphics tools, 1999, 4(2): 7-25.</li>
+										<li>Van Den Bergen G. Proximity queries and penetration depth computation on 3d game objects[C]//Game developers conference. 2001, 170.</li>
+										<li>Ladislav Kavan "Rigid Body Collision Response", https://www.cs.utah.edu/~ladislav/kavan03rigid/kavan03rigid.pdf</li>
+										<li>Chris Hecker, Physics, Part 3:Collision Response, http://chrishecker.com/images/e/e7/Gdmphys3.pdf</li>
 									</ol>
 
 								</div>
