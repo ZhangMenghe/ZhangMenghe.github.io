@@ -2395,6 +2395,13 @@ input, select, textarea {
             margin-right: auto;
 
 		}
+		.image_center_full{
+		    display: block;
+		    width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+
+		}
 
 			.image.main img {
 				width: 100%;

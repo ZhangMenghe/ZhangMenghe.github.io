@@ -60,8 +60,10 @@
                                         	<li><b>Collision Response: </b> impulse based collision response</li>
 											<li><b>Visualization: </b> <a href="http://www.openscenegraph.org/">OpenSceneGraph & OpenGL</a></li>
                                     	</ul>
-
+										<p>The following diagram shows a high level overview of the general procedure of this project</p>
+										<img src="images/cse291d/imgs/diagram.jpg" alt="" class="image_center_full"/>
 									</div>
+
 									<!--<span class="image"><img src="images/lapras2.png" alt="" /></span>-->
 								</div>
 							</section>
@@ -70,10 +72,36 @@
 								<header class="major">
 									<h2>Rigidbody Dynamics</h2>
 								</header>
-								<div class="content">
-									<!--<h2>Rotational Inertia</h2>-->
-									<h3>Mirtich-Eberly algorithm</h3>
-									<!--<h4>BOX-Plane Collision</h4>-->
+								<div class="align-left">
+									<h2>Newtonian Mechanics: Three Laws of Motion</h2>
+									<ul class="align-left">
+										<li><b>Inertia:</b> If no force is applied on an object, its velocity(both SPEED and DIRECTION) not change <br>
+											<b>Rotational Inertia and Mirtich-Eberly algorithm</b> Moment of inertia, denoted by \(I\), measures the extent to which an object resists rotational acceleration about a particular axis, and is the rotational analogue to mass.<br>
+											<a href="https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors/">Here on Wikipedia</a> Lists formulas to compute the moment of inertia for a bunch of shapes about different axes and the corresponding tensors, which is according to the formular \(n \dot I \dot n=n_i I_{ij}n_j\) where \(n\) is a unit vector.<br>
+											<b>Mirtich-Eberly algorithm</b> is an analytical technique for computing them on triangle meshes in \( O(n)\) time. Since for a general rigidbody, teh mass property is defined as the integral of the density \( \rho \) over some volumetric domain \(\Omega\), that is
+											$$m = \int_{\Omega} \rho d\Omega$$
+											For those uniform density polyhedra, the mass integration can be converted into volume integrals. Mirtich-Eberly algorithm make it process a 3-step reduction of the volume integrals to successively simpler integrals: that is, volume integration->face integration->projection integration
+											<img src="images/cse291d/imgs/three-step-integration.PNG" alt="" class="image_center_full"/>
+											Thus, given the mesh and its density, we get the mass, center of the mass and Inertia Tensor(3x3)
+
+
+										</li>
+										<li>
+											<b>Force, Mass, and Acceleration: </b> The force acting on an object is equal to the mass of the object multiplied by its acceleration (rate of change of velocity). This is given by the formula \(F = ma\). Therefore, <br>
+																					for the linear velocity, we get \( v +=\dfrac{f}{m}\cdot\Delta t\) <br>
+																				    for the angular velocity, we get \( \omega += \dfrac{\tau \cdot\Delta t}{I} \)<br>
+																					Then later, we can get the updated position and orientation based on linear and angular velocities. where
+																					$$ p += v \cdot\Delta t$$
+																					$$ orientation += \omega \cdot \Delta t \cdot orientation,  \quad    orientation.Orthonormalize() $$
+
+
+										</li>
+
+										<li>
+											<b>Action and Reaction: </b> “For every action there is an equal and opposite reaction.” In other words, whenever one body exerts a force on another, the second body exerts a force of the same magnitude and opposite direction on the first. We will talk about it later in the collision section.
+										</li>
+									</ul>
+
 									<img src="images/cse291d/box-plane.gif" alt="" class="image_center"/>
 
 								</div>
@@ -83,6 +111,17 @@
 								<header class="major">
 									<h2>Spring Mass System</h2>
 								</header>
+								<div class="spotlight">
+									<p class="align-left">When a spring is stretched or compressed by a mass, the spring develops a restoring force. Hooke's law gives the relationship of the force exerted by the spring when the spring is compressed or stretched a certain length:
+										$$ F(t) = -kx(t) $$
+										where \(F\) is the force, \(k\) is the spring constant and \(x\) is the displacement of the mass with respect to the equilibrium position.<br>
+										However, no sample follows Hooke’s law indefinitely, and there comes a point, called the Limit of Proportionality, where there is no longer a linear relationship between force and extension. After yet more force is applied, the Elastic Limit will be reached. This means that the sample will no longer return to its original shape when the force ceases to be present. Eventually, the force will become so great that the material snaps. This is called the Yeild Point
+									</p>
+									<span class="image"><img src="images/cse291d/imgs/hookes-law-limit.png" alt="" /></span>
+
+								</div>
+
+
 								<div class="content">
 									<img src="images/cse291d/sphere-spring.gif" alt="" class="image_center"/>
 								</div>
@@ -93,18 +132,134 @@
 									<h2>Collision Detection</h2>
 								</header>
 								<div class="content">
-									<ul>
-										<li><b>Sphere-Plane and Sphere-Sphere: </b>
+									<img src="images/cse291d/imgs/sphere-plane.png" alt="" style="width:40%"/>
+									<img src="images/cse291d/imgs/sphere-sphere1.gif" alt="" class="imgage"/>
+									<img src="images/cse291d/imgs/sphere-sphere.gif" alt="" class="imgage"/>
+
+									<ul class="align-left">
+
+										<li><b>Sphere Collision: </b>
+											<ol>
+												<li><b>Sphere-Plane Intersection:</b> First, we make a vector from a point on the plane to the center of the sphere. Then, we get the dot product of this vector with the normal of the plane. If the result is less than or equal to the radius of the sphere, it means the sphere is colliding with the plane (either by just touching it or by getting already on the negative side of the plane)
+
+												</li>
+												<li><b>Sphere-Sphere Intersection: </b> given spheres \( s_1, s_2 \)  with radius \( R \) at \( o_1 \) and \( r \) at \( o_2 \) respectively. We calculate the squared distance between centers.\( vec_s = p_1 - p_2 \) and radius sum \( rs = R+r \). Sphere intersect if squared distance between centers is less than squared sum of radius:
+													$$vec_s \cdot vec_s < rs * rs$$
+
+												</li>
+											</ol>
+
+											<!--<div class="spotlight">-->
+												<!--sdfasdfasdf-->
+											<!--</div>-->
 											<img src="images/cse291d/sphere.gif" alt="" class="image_center"/>
 										</li>
 
 										<li><b>Box-Plane and Box-Box: </b> Separating Axis Algorithm
-											<img src="images/cse291d/box-box.gif" alt="" class="image_center"/>
+											<ol>
+												<li>
+													<b>AABB-Plane Collision: </b>To test if an AABB and plane intersect, we first have to project each vertex of the AABB onto the plane's normal. This leaves us with all the vertices of the AABB on a line.
+We then check the vertex that is furthest from the plane. If the vertex diagonally opposite that one is on the other side of the plane, we have an intersection.
+													Here is the process:
+										<pre><code>
+given plane p and AABB box b
+
+c =compute center of AABB box;
+e = get the positive extend ;
+r = compute the projection interval radius of b onto L(t) = b.c + t * p.n
+	r = e.x * p.n.x + e.y * p.n.y + e.z * p.n.z
+s = compute distance of box center from plane
+Intersection occurs when distance s falls within [-r, r]
+
+										</code></pre>
+												<img src="images/cse291d/manyboxes.gif" alt="" class="image_center"/>
+												</li>
+
+												<li>
+													<img src="images/cse291d/imgs/sat.png" alt="" style="padding:0 15px; margin: 70px 0px 0px 0px; float: right; width:50%"/>
+													<b>Box-Box Collision: Separating Axis Theorem(SAT)</b> project all of the points of both objects onto a line normal to the plane and observe that they form two separate non-overlapping intervals.<br>
+													If we limit ourselves to convex polyhedra, we can identify a finite number of possible axes to test. Specifically, For a box testing with arbitrary rotation,  only 3 unique planes per object and only 3 unique edges. If each box has a 3x3 orientation matrix \(M_n\) whose column vectors are \(M_n = [a_n, b_n, c_n]\) then we would want to test all of the flowing axes:
+													$$\begin{matrix}
+𝐚1 & 𝐛1 & 𝐜1\\
+𝐚2 & 𝐛2 & 𝐜2\\
+𝐚1 \times 𝐚2 & 𝐚1 \times 𝐛2 & 𝐚1 \times 𝐜2 \\
+𝐛1 \times 𝐚2 & 𝐛1 \times 𝐛2 & 𝐛1 \times 𝐜2 \\
+𝐜1 \times 𝐚2 & 𝐜1 \times 𝐛2 & 𝐜1 \times 𝐜2
+														\end{matrix}$$
+
+
+
+												</li>
+												<img src="images/cse291d/box-box.gif" alt="" class="image_center"/>
+											</ol>
+
+
+
 										</li>
 
 										<li><b>Convex Polygon-Plane: </b> Gilbert-Johnson-Keerthi (GJK) and Expanding Polytope Algorithm(EPA)
+											<ol>
+												<li>
+													<b>The Gilbert-Johnson-Keerthi (GJK) algorithm</b> is a popular method for computing the distance between two arbitrary convex objects. One nice feature is that it can be adapted to handle intersections between different object classes (such as spheres vs. convex polyhedral) with minimal effort.
+													The GJK algorithm relies heavily on a concept called the Minkowski Sum. The Minkowski Sum conceptually is very easy to understand. Let’s say you have two shapes, the Minkowski Sum of those shapes is all the points in shape1 added to all the points in shape2:
+													$$ A+B = \{a+b | a \in A, b \in B \}$$
+													The difference operation in the Minkowski sum is
+													$$A-B = \{a-b | a \in A, b \in B \}$$
+
+													If two shapes are overlapping the Minkowski Difference will contain the origin as the image indicates:
+													<div class="image_center_full">
+														<img src="images/cse291d/imgs/gjk-figure1.png" alt="" />
+														<img src="images/cse291d/imgs/gjk-figure2.png" alt="" />
+
+													</div>
+													Therefore, we want to build a polygon that attempts to enclose the origin, if it's enclosed, we found the intersection. The polygon is called Simplex.<br>
+													To build the simplex, we need to find the support point, which is the farthest point(so that contains a maximum area) in a direction that is inside the Minkowski difference polygon.
+													The k-simplex is the convex hull of k+1 affinely independent points in a k-dimensional space, so we get
+													<img src="images/cse291d/imgs/simplex.png" alt="" class = "image_center_full"/>
+													For each level of simplex, we do the iteration of different searching directions check of collision(by determing whether the simplex contains the origin).
+													For example, here is the skeleton code for 2d GJK iterative alogirhtm
+																							<pre><code>Vector d = // choose a search direction
+// get the first Minkowski Difference point
+Simplex.add(support(A, B, d));
+// negate d for the next point
+d.negate();
+// start looping
+while (true) {
+  // add a new point to the simplex because we haven't terminated yet
+  Simplex.add(support(A, B, d));
+  // make sure that the last point we added actually passed the origin
+  if (Simplex.getLast().dot(d) <= 0) {
+    // if the point added last was not past the origin in the direction of d
+    // then the Minkowski Sum cannot possibly contain the origin since
+    // the last point added is on the edge of the Minkowski Difference
+    return false;
+  } else {
+    // otherwise we need to determine if the origin is in
+    // the current simplex
+    if (Simplex.contains(ORIGIN)) {
+      // if it does then we know there is a collision
+      return true;
+    } else {
+      // otherwise we cannot be certain so find the edge who is
+      // closest to the origin and use its normal (in the direction
+      // of the origin) as the new d and continue the loop
+      d = getDirection(Simplex);
+    }
+  }
+}
+
+										</code></pre>
+
+												</li>
+
+
+												<li>
+													<b>The Expanding Polytope Algorithm(EPA)</b> Determining Penetration Depth
+
+												</li>
+											</ol>
 											<img src="images/cse291d/rock.gif" alt="" class="image_center"/>
-											<img src="images/cse291d/gua.gif" alt="" class="image_center"/>
+											<!--<img src="images/cse291d/gua.gif" alt="" class="image_center"/>-->
 										</li>
 									</ul>
 
@@ -128,11 +283,12 @@
 								<header class="major">
 									<h2>Reference</h2>
 								</header>
-								<div class="content">
-									<ul>
-										<li>ref1:</li>
-										<li>ref2:</li>
-									</ul>
+								<div class="align_left">
+									<ol>
+										<li>Mirtich, Brian. "Fast and accurate computation of polyhedral mass properties." Journal of graphics tools 1.2 (1996): 31-50.</li>
+										<li>Wolfram MathWorld "Sphere-Sphere Intersection",  http://mathworld.wolfram.com/Sphere-SphereIntersection.html</li>
+										<li>gitbooks "AABB Plane", https://gdbooks.gitbooks.io/3dcollisions/content/Chapter2/static_aabb_plane.html</li>
+									</ol>
 
 								</div>
 							</section>
