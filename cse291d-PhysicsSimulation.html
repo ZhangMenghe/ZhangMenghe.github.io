@@ -215,8 +215,8 @@ Intersection occurs when distance s falls within [-r, r]
 													Therefore, we want to build a polygon that attempts to enclose the origin, if it's enclosed, we found the intersection. The polygon is called Simplex.<br>
 													To build the simplex, we need to find the support point, which is the farthest point(so that contains a maximum area) in a direction that is inside the Minkowski difference polygon.
 													The k-simplex is the convex hull of k+1 affinely independent points in a k-dimensional space, so we get
-													<img src="images/cse291d/imgs/simplex.png" alt="" class = "image_center_full"/>
-													For each level of simplex, we do the iteration of different searching directions check of collision(by determing whether the simplex contains the origin).
+
+													We do the iteration of different searching directions check of collision(by determing whether the simplex contains the origin).
 													For example, here is the skeleton code for 2d GJK iterative alogirhtm
 																							<pre><code>Vector d = // choose a search direction
 // get the first Minkowski Difference point
@@ -249,6 +249,11 @@ while (true) {
 }
 
 										</code></pre>
+													for occasions of 3D, things are more complicated, because there are extra cases.
+													<img src="images/cse291d/imgs/gjkABC.png" alt="" class = "image_center_full"/>
+													<img src="images/cse291d/imgs/gjkACD.png" alt="" class = "image_center_full"/>
+													<img src="images/cse291d/imgs/gjkADB.png" alt="" class = "image_center_full"/>
+													<img src="images/cse291d/imgs/gjkabcd.png" alt="" class = "image_center"/>
 
 												</li>
 
