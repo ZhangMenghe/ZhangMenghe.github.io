@@ -3908,3 +3908,7 @@ input, select, textarea {
 .experience-logo {
 	height: 6em;
 }
+
+.project-link {
+	color: #5f4d93;
+}
