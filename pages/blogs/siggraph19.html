@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Siggraph 2019 Blog</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+          <script type="text/javascript" async
+                 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+          </script>
+        <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+                        <h1>Siggraph 2019 Report</h1>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#FunIdeas" class="active">Fun Ideas</a></li>
+							<li><a href="#CouldBeUseful">Could Be Useful</a></li>
+							<li><a href="#CoolStuff">Cool Stuff</a></li>
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Overview -->
+							<section id="FunIdeas" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Fun Ideas</h2>
+										</header>
+
+										<ul>
+											<li>
+                                                <b>FaceUnity</b>
+                                                <ul>
+                                                    <li>Video-based avatar interatction</li>
+                                                    <li>Audio-based Avatar Interaction</li>
+                                                    <li>Automatic Avatar Generation</li>
+                                                    <li>FaceAR SDK(2.6MB on mobile, interaction include, face tracking,3d face recostrction, ai recognition, segmentation)</li>
+                                                    <li>Runs on server(feature capture/style transfer etc)</li>
+                                                </ul>
+                                                <img src="https://drive.google.com/uc?id=1pQq70NKBqNTQEgw04jRbDQNKxBH543xZ" alt="" class="image_center"/>
+                                            </li>
+
+
+                                            <li>
+                                                <b>Neural AR(by Akaatsuki)</b>
+                                                <ul>
+                                                    <li>Immersive augmented reality with real-time neural style transfer.</li>
+                                                    <li>Interaction: third-party controller</li>
+                                                    <li>Computation: backpack computer(HP)</li>
+                                                    <li>Display: Google cardboard</li>
+                                                    <li>Style transfer is so coooool in AR</li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <b>OVS+Tumor</b>
+                                                <ul>
+                                                    <li>A Tool for Enhanced Lung Tumor Annotation in VR for Machine Learning Training and Analysis.</li>
+                                                    <li>Use VR to do data annotation</li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <b><a href="https://www.tugraz.at/institute/icg/research/team-steinberger/research-projects/sas/">Shading Atlas Streaming</a></b>
+                                                <ul>
+                                                    <li>Streaming high quality rendering for VR applications</li>
+                                                    <li>server: transmit only visible geometry and shading atlas to HMD</li>
+                                                    <li>client: rasterize the geometry and applies shading infromation from Atlas</li>
+                                                    <li>high quality rendered, wireless vr</li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <b><a href="http://delivery.acm.org/10.1145/3330000/3327990/a9-hwang.pdf?ip=137.110.57.51&id=3327990&acc=OPEN&key=CA367851C7E3CE77%2E30F2CC1B2E6C2B37%2E4D4702B0C3E38B35%2E6D218144511F3437&__acm__=1564697224_e983e20582339a00fb3b5b251b6e4690">ChicMR</a></b>
+                                                <ul>
+                                                    <li>Immersive Mixed Reality System using Video-See-Thru HMD and 3D LiDAR scanne</li>
+                                                    <li>LIDAR BASED SPATIAL MAPPING. Use lidar to reconstruc environment</li>
+                                                </ul>
+                                            </li>
+
+                                    	</ul>
+										<!--<p>The following diagram shows a high level overview of the general procedure of this project</p>-->
+										<!--<img src="images/cse291d/imgs/diagram.jpg" alt="" class="image_center_full"/>-->
+									</div>
+
+									<!--<span class="image"><img src="images/lapras2.png" alt="" /></span>-->
+								</div>
+							</section>
+						<!-- CouldBeUseful Section -->
+							<section id="CouldBeUseful" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Could Be Useful</h2>
+										</header>
+
+										<ul>
+											<li>
+                                                <b>Unity: DOTS(Multi-threaded Data-Orientated Technology Stack)</b>
+                                                <ul>
+                                                    <li>C#, Entity Component System(ECS), The Burst Compiler</li>
+                                                    <li><a href="https://unity.com/megacity">Try Megacity Demo!</a></li>
+                                                </ul>
+                                            </li>
+
+
+                                            <li>
+                                                <b>Unity: Rendering Pipeline</b>
+                                                 <img src="https://drive.google.com/uc?id=1L779hrgtt7z6SxE77WDWrA1XPV6FCVo0" alt="" class="image_center"/>
+                                            </li>
+
+                                            <li>
+                                                <b>Unity: TensorFlow integration for Agent Training</b>
+                                            </li>
+
+                                            <li>
+                                                <b>Nvidia: VRWorks-Variable Rate Shading(VRS)</b>
+                                                New rendeing technique enabled by Turing GPUs(GeForce RTX/Quadro RTX).It varies amount of processing power to different areas of the image. Vary the number of pixels that can be processed by a single pixel shader operation.
+(Compatible with DX11, DX12, OpenGL, Vulkan)
+                                            </li>
+
+                                            <li>
+                                                <b>LemnisTech(Verifocal AR headset + auto focus)</b>
+                                                <ul>
+                                                    <li>Eye tracking include</li>
+                                                    <li>autofocus make the background(real-world) clear(can read)</li>
+                                                </ul>
+                                            </li>
+
+                                    	</ul>
+										<!--<p>The following diagram shows a high level overview of the general procedure of this project</p>-->
+										<!--<img src="images/cse291d/imgs/diagram.jpg" alt="" class="image_center_full"/>-->
+									</div>
+
+									<!--<span class="image"><img src="images/lapras2.png" alt="" /></span>-->
+								</div>
+							</section>
+						<!-- Cool Stuff Section -->
+							<section id="CoolStuff" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Cool Stuff</h2>
+                                            <p>(Even though not really relevent)</p>
+										</header>
+
+										<ul>
+											<li>
+                                                <b>Ariel AI(UCL)</b>
+                                                <ul>
+                                                    <li>Fast and accurate 3D Human Understanding</li>
+                                                    <li>Real-time 3D reconstruction of human body on mobile(up to scale)</li>
+                                                    <li>Statistical and personalized human modeling</li>
+                                                </ul>
+                                                <img src="https://drive.google.com/uc?id=1TEuN6ynbNrqc5106MQpfDf9SMoPmrHyS" alt="" class="image_center"/>
+                                            </li>
+
+
+                                            <li>
+                                                <b>Spatial Programming</b>
+                                            </li>
+
+                                            <li>
+                                                <b>Deep Illumination:</b>infer lighting models from the data, rather than optimize complex rendering calculations
+                                            </li>
+
+                                            <li>
+                                                <b>Pinocchio VR...nose will be extended</b>
+                                            </li>
+
+                                            <li>
+                                                <b>UC-win|Road version13.1. Driving simulation. With pointcloud loaded</b>
+                                            </li>
+                                            <li><b>Nvidia GauGAN: </b>sketches to photo-realistic masterpieces</b></li>
+                                            <li><b><a href="https://vimeo.com/259099606"></a>Drawing Sound in MR Space:</b> A Multi-User Audiovisual Experience in Mixed Reality Space </li>
+                                            <li>
+                                                <b>AIR: </b> Augmented Intersection of Realities: phone can identify model/image on a random website, then manipulate on phone, even drag and drop into a 3d printer and print.
+                                                <img src="https://drive.google.com/uc?id=1Qr5uqwbkSSVAAVPdrFQhJmeK4k-Fjf8Z" alt="" class="image_center"/>
+                                            </li>
+                                            <li>
+                                                <b><a href="https://www.youtube.com/watch?v=Tr1-IhEhXYQ"></a>Arque:</b> Artificial Biomimicry-Inspired Tail for Extending Innate Body Functions
+                                                <img src="https://drive.google.com/uc?id=1ynyVaILk-lTrq0mDgxg2-xVtkudp75fB" alt="" class="image_center"/>
+                                            </li>
+                                        </ul>
+										<!--<p>The following diagram shows a high level overview of the general procedure of this project</p>-->
+										<!--<img src="images/cse291d/imgs/diagram.jpg" alt="" class="image_center_full"/>-->
+									</div>
+
+									<!--<span class="image"><img src="images/lapras2.png" alt="" /></span>-->
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						 <!--<section>-->
+							<!--<h2>Menghe Zhang</h2>-->
+							<!--<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>-->
+							<!--<ul class="actions">-->
+								<!--<li><a href="generic.html" class="button">Learn More</a></li>-->
+							<!--</ul>-->
+						<!--</section>-->
+						<section>
+							<h2>Contact Me</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd>9500 Gilman Drive &bull; La Jolla, 92093 &bull; USA</dd>
+								<dt>Email</dt>
+								<dd>mez071 AT eng.ucsd.edu</dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="https://www.facebook.com/zmh.leaves" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+								<li><a href="https://github.com/ZhangMenghe" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
