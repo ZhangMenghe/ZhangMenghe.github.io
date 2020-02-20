@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Augmented Reality Assisted Laparoscopic Surgery with Magnetic Resonance Imaging (MRI)</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="css/main.css" />
+        <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<script type="text/javascript" async
+				src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+                <header id="header" class="alt">
+                    <h1>Human-Centered Computing for Health Final Project </h1>
+                    <p>Augmented Reality Assisted Laparoscopic Surgery with Magnetic Resonance Imaging (MRI)</p>
+                </header>
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a href="#Background" class="active">Background</a></li>
+						<li><a href="#Hardware">Hardware</a></li>
+						<li><a href="#Software">Software</a></li>
+		
+						<li><a href="#Result">Result</a></li>
+						<li><a href="#Future">Future Direction</a></li>
+						<li><a href="#Reference">Reference</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Background -->
+						<section id="Background" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Background</h2>
+									</header>
+									<p>Over the past decades, intra-abdominal minimally invasive surgery (MIS), which is also known as laparoscopic surgery, has progressively become more popular than open surgery owing to its low risks and small incisions. Yet, this kind of intervention introduced a loss of direct vision and tactile feedback upon the scene for the surgeon. Furthermore, it provides only a surface view of the organs and cannot show anatomical structures and surgical targets located beneath the exposed organ surfaces.
+									</p>
+									<p>Augmented reality (AR) has been introduced to various disciplines of MIS in the last 20 years. It overlays the assisting information on the live laparoscopic video and appears to be a viable solution to alleviate the problem of lacking feedback. However, in abdominal MIS, correctly augmenting a laparoscopic scene remains challenging, due to the non-rigidity of abdominal tissues and organs.</p>
+									<p>In this case, Magnetic Resonance Imaging (MRI) could be a great source to augment the real scene. </p>
+									<p>MRI is a medical imaging technique that uses a magnetic field and computer-generated radio waves to create detailed images of the organs and tissues. Compared to a CT scan, MRIs provide more detailed information about the inner organs (soft tissues) such as the brain, skeletal system, reproductive system and other organ systems. For intra-abdominal surgeries, MRI scans are usually obtained before the operation and can be pre-processed for special needs. </p>
+									<p>Most laparoscopic AR approaches should be composed of two distinct parts: an initial static registration of the augmentation to the scene and a tracking procedure to maintain its accuracy in presence of motions, deformations and occlusions.</p>
+									
+
+						</section>
+
+						<!-- Hardware -->
+						<section id="Hardware" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Hardware</h2>
+										<p>The main principle of our system is presented here.</p>
+										<div class="image_center_full">
+											<img src="images/s1.PNG" alt="" style="width:80%"/>
+											<!-- <img src="images/s2.PNG" alt="" style="width:50%"/> -->
+										</div>
+										<div class="image_center_full">
+											<img src="images/c1.PNG" alt="" style="width:30%"/>
+											<img src="images/s2.PNG" alt="" style="width:30%"/>
+											<img src="images/c2.PNG" alt="" style="width:30%"/>
+										</div>
+									</header>
+						</section>
+						
+						<!-- Software -->
+						<section id="Software" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Software</h2>
+										<p>The most basic component is to superimpose the rendered MRI data to the real-time laparoscopic video. To achieve this, we need to firstly preprocess the MRI images and then figure out the approaches of registration and tracking.</p>
+										<ul>
+											<li><b>Registration:</b>vision-based approaches are promising. Recent works first annotate or estimate the correspondence of natural or artificial landmarks between the preoperative data and the laparoscopic image, then optimize the results with surface or volume constraint. </li>
+											<li><b>Tracking:</b> optical tracking and electromagnetic tracking</li>
+                                    	</ul>
+									</header>
+						</section>
+
+						<!-- Result -->
+						<section id="Result" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Result</h2>
+									</header>
+						</section>
+
+						<!-- Future -->
+						<section id="Future" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Future Direction</h2>
+									</header>
+						</section>
+
+						<!-- Reference -->
+						<section id="Reference" class = "main">
+							<div class="spotlight">
+								<div class="content">
+									<header class="major">
+										<h2>Reference</h2>
+									</header>
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<style>
+						.foot-section {width:100%; float: left;}
+						.foot-section section {width: 30%; float: left;}
+					</style>
+				<section class="foot-section">	
+				   <section>
+					   <h2>Menghe Zhang</h2>
+					   <dl class="alt">
+						   <dt>Email</dt>
+						   <dd>mez071 AT eng.ucsd.edu</dd>
+					   </dl>
+					   <ul class="icons">
+						   <li><a href="https://www.facebook.com/zmh.leaves" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+						   <li><a href="https://github.com/ZhangMenghe" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+					   </ul>
+				   </section>
+
+				   <section>
+					<h2>Avinoam Cramer</h2>
+					<dl class="alt">
+						<dt>Email</dt>
+						<dd></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://www.facebook.com/zmh.leaves" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+						<li><a href="https://github.com/ZhangMenghe" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section >
+				<section>
+					<h2>Walid Rafei</h2>
+					<dl class="alt">
+						<dt>Email</dt>
+						<dd></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://www.facebook.com/zmh.leaves" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+						<li><a href="https://github.com/ZhangMenghe" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+			   </footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
