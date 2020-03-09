@@ -25,11 +25,13 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="#Background" class="active">Background</a></li>
+						<li><a href="#Target">System Overview</a></li>
+
 						<li><a href="#Hardware">Hardware</a></li>
 						<li><a href="#Software">Software</a></li>
 		
-						<li><a href="#Result">Result</a></li>
-						<li><a href="#Future">Future Direction</a></li>
+						<li><a href="#Video">Video</a></li>
+						<li><a href="#Conclusion">Conclusion</a></li>
 						<li><a href="#Reference">Reference</a></li>
 					</ul>
 				</nav>
@@ -37,43 +39,132 @@
 				<!-- Main -->
 					<div id="main">
 						<!-- Background -->
-						<section id="Background" class = "main">
-							<div class="spotlight">
-								<div class="content">
-									<header class="major">
-										<h2>Background</h2>
-									</header>
-									<p>Over the past decades, intra-abdominal minimally invasive surgery (MIS), which is also known as laparoscopic surgery, has progressively become more popular than open surgery owing to its low risks and small incisions. Yet, this kind of intervention introduced a loss of direct vision and tactile feedback upon the scene for the surgeon. Furthermore, it provides only a surface view of the organs and cannot show anatomical structures and surgical targets located beneath the exposed organ surfaces.
-									</p>
-									<p>Augmented reality (AR) has been introduced to various disciplines of MIS in the last 20 years. It overlays the assisting information on the live laparoscopic video and appears to be a viable solution to alleviate the problem of lacking feedback. However, in abdominal MIS, correctly augmenting a laparoscopic scene remains challenging, due to the non-rigidity of abdominal tissues and organs.</p>
-									<p>In this case, Magnetic Resonance Imaging (MRI) could be a great source to augment the real scene. </p>
-									<p>MRI is a medical imaging technique that uses a magnetic field and computer-generated radio waves to create detailed images of the organs and tissues. Compared to a CT scan, MRIs provide more detailed information about the inner organs (soft tissues) such as the brain, skeletal system, reproductive system and other organ systems. For intra-abdominal surgeries, MRI scans are usually obtained before the operation and can be pre-processed for special needs. </p>
-									<p>Most laparoscopic AR approaches should be composed of two distinct parts: an initial static registration of the augmentation to the scene and a tracking procedure to maintain its accuracy in presence of motions, deformations and occlusions.</p>
-									
+						<section id="Background" class = "main special">
+							<header class="major">
+								<h2>Background</h2>
+							</header>
+							<div class="align-left">
+								<h2><strong>Laparoscopic Surgery</strong></h2>
+								<h3>&#10697; Benefits and Problems</h3>
+								<p>Over the past decades, intra-abdominal minimally invasive surgery (MIS), which is also known as laparoscopic surgery, has progressively become more popular than open surgery owing to its low risks and small incisions. Current laproscopic cameras commonly provide full HD vision of the scene in 60fps, some even provide 2K and even 4K resolution video. Yet, this kind of intervention introduced a loss of direct vision and tactile feedback upon the scene for the surgeon. Furthermore, it provides only a surface view of the organs and cannot show anatomical structures and surgical targets located beneath the exposed organ surfaces.</p>
+								
+								<h3>&#10697; Supplementary Images </h3>
+								There are some other visual assisted data that are commonly used during the sugery together with endoscopic images.
+								<ul class="align-left">
+									<li><b>Preoperative images: </b>MRI and CT present a good resolution and image quality. Since they are acquired prior to the intervention, they are often digitally processed</li>
+									<li><b>Intraoperative images: </b>CBCT, open MR scanners, and 2D US provides live but worse resolution quality images.</li>
+								</ul>
+								<p>MRI is a medical imaging technique that uses a magnetic field and computer-generated radio waves to create detailed images of the organs and tissues. Compared to a CT scan, MRIs provide more detailed information about the inner organs (soft tissues) such as the brain, skeletal system, reproductive system and other organ systems. For intra-abdominal surgeries, MRI scans are usually obtained before the operation and can be pre-processed for special needs. </p>
 
+								<h2><b>Laparoscopic Augmented Reality</b> </h2>
+								<p>Augmented reality (AR) has been introduced to various disciplines of MIS in the last 20 years. It overlays the assisting information on the live laparoscopic video and appears to be a viable solution and appears to be a viable solution to alleviate the problem of lacking feedback. </p>
+							
+								<p>However, in abdominal MIS, correctly augmenting a laparoscopic scene remains challenging, due to the non-rigidity of abdominal tissues and organs.</p>
+							</div>
 						</section>
 
+						<!-- Target -->
+						<section id="Target" class = "main special">
+							<header class="major">
+								<h2>System Overview</h2>
+							</header>
+							<div class="align-left">
+								<h2><b>Target</b> </h2>
+								<p>The purpose of this work was to prototype a laparoscopic Augmented Reality system with preoperative Magnetic Resonance Imaging (MRI) and intraoperative laparoscopic ultrasound(LUS).</p>
+								<h2><b>Components</b> </h2>
+
+								<p>The system can be divided into pre-operative stage and intra-operative stage.</p>
+								<h3>&#10697; Preoperative Stage</h3>
+								<ul class="align-left">
+									<li><b>Take abdominal MRI scans: </b>patients are supposed to take their abdominal MRI scans and get the best quality view of the volume</li>
+									<li><b>Preprocess and analyze MRI volume while have the surgical plans: </b>doctors can tune the MRI volume to get the best view and modify the MRI data while discussing the surgical plans together. After this step, potential sugical trajectories should be marked and saved for later use.</li>
+									<li><b>Talk about the surgical plan to patients:</b> patients can view their surgical plans on mobile devices with doctors together, thus getting to know the details of surgery.</li>
+								</ul>
+
+							<div class="gallery-small">
+								<!-- <p>asdfasdf</p> -->
+								<figure class="gallery-item git1">
+									<img src="images/st-edit.jpg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx1"><b>Talking to patients</b></p>
+
+								<figure class="gallery-item git2">
+									<img src="images/st-sw.jpg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx2"><b>MRI Volume Editor</b></p>
+								<figure class="gallery-item git3">
+									<img src="images/vr-mri.png" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx3"><b>MRI view/edit in VR system</b></p>
+
+							</div>
+
+								<h3>&#10697; Intraoperative Stage</h3>
+								<ul class="align-left">
+									<li><b>Track laparoscopy and LUS with EM tracker: </b>track the surgical devices together with LUS with electromagnetic to achieve image registration.</li>
+									<li><b>Real-time alignment of LUS and MRI: </b>achieve MRI-to-video registration in real-time.</li>
+									<li><b>Overlay MRI on endoscopic video </b></li>
+									<li><b>Follow the planned trajectories to do the operation</b></li>
+								</ul>
+								<p>The following image illustrates the operation process: </p>
+								<div class="image_center_full">
+									<img src="images/st-operation.jpg" alt="" style="width:90%"/>
+								</div>
+
+							</div>
+						</section>
+
+
 						<!-- Hardware -->
-						<section id="Hardware" class = "main">
-							<div class="spotlight">
-								<div class="content">
-									<header class="major">
-										<h2>Hardware</h2>
-										<p>The main principle of our system is presented here.</p>
-										<div class="image_center_full">
-											<img src="images/s1.PNG" alt="" style="width:80%"/>
-											<!-- <img src="images/s2.PNG" alt="" style="width:50%"/> -->
-										</div>
-										<div class="image_center_full">
-											<img src="images/c1.PNG" alt="" style="width:30%"/>
-											<img src="images/s2.PNG" alt="" style="width:30%"/>
-											<img src="images/c2.PNG" alt="" style="width:30%"/>
-										</div>
-									</header>
+						<section id="Hardware" class = "main special">
+							<header class="major">
+								<h2>Hardwares</h2>
+							</header>
+							<div class="align-left">
+								<p>According to the order of stages, here lists the hardwares used in our system besides traditional laproscopic surgeries: </p>
+
+							<div class="gallery">
+								<figure class="gallery-item git1">
+									<img src="images/mriscanner.jpg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx1"><b>MRI Scanner</b></p>
+
+								<figure class="gallery-item git2">
+									<img src="images/vr-mri.png" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx2"><b>DICOM volume view/manipulation system</b><br>(deployed on VR/desktop/mobile)</p>
+								
+								<figure class="gallery-item git3">
+									<img src="images/lap-vis-sys.jpg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx3"><b>Stereoscopic vision system</b><br>to view the augmented video</p>
+								
+								<figure class="gallery-item git4">
+									<img src="images/lus.jpeg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx4"><b>LUS scanner</b></p>
+								
+								<figure class="gallery-item git5">
+									<img src="images/emtracker.png" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx5"><b>EM tracking system </b> <br> with a tabletop field generator</p>
+								
+								<figure class="gallery-item git6">
+									<img src="images/computer.jpg" class="gallery-item" alt="">
+								</figure>
+								<p class="gallery-item gtx6"><b>Computer running our softwares</b></p>
+
+							</div>
+							<p>The hardware settings during the surgery are: </p>
+							<div class="image_center_full">
+								<img src="images/sb-setting.jpg" alt="" style="width:90%"/>
+							</div>
+
+							</div>
 						</section>
 						
 						<!-- Software -->
-						<section id="Software" class = "main">
+						<section id="Software" class = "main special">
 							<div class="spotlight">
 								<div class="content">
 									<header class="major">
@@ -86,26 +177,36 @@
 									</header>
 						</section>
 
-						<!-- Result -->
-						<section id="Result" class = "main">
-							<div class="spotlight">
-								<div class="content">
-									<header class="major">
-										<h2>Result</h2>
-									</header>
+						<!-- Video -->
+
+						<section id="Video" class = "main special">
+							<header class="major">
+								<h2>Video</h2>
+							</header>
+							<iframe width="1100" height="600"  src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1"></iframe>
 						</section>
 
-						<!-- Future -->
-						<section id="Future" class = "main">
-							<div class="spotlight">
-								<div class="content">
-									<header class="major">
-										<h2>Future Direction</h2>
-									</header>
+						<!-- Conclusion -->						
+						<section id="Conclusion" class = "main special">
+							<header class="major">
+								<h2>Conclusions</h2>
+							</header>
+							<div class="align-left">
+								<p>In conclusion, we prototyped a fully integrated solution to current laparoscopic surgeries with preoperative MRI and intraoperative ultrasound images based on EM tracking and 3d MRI-2d Ultrasound-endoscopic video alignment. </p>
+								<p>The system was designed to potentially used in pratical clinical environments.</p>
+								<p>The major advantages of out solution are that: </p>
+								<ul class="align-left">
+									<li>It provides intraoperative guidance with a rapic identification of subsurface targets and critical structures.</li>
+									<li>It spares the surgeon from having to mentally match information from different sources to the scene.</li>
+									<li>It increase providers' spatial awareness by lifting anatomical ambiguities and thus resolve the problem that endoscopic video only provides narrow FoV.</li>
+									<li>It provides the possibility to guide the resections by displaying cutting trajectories and margins planned beforehand on a virtual model.</li>
+								</ul>	
+							</div>
 						</section>
+
 
 						<!-- Reference -->
-						<section id="Reference" class = "main">
+						<section id="Reference" class = "main special">
 							<div class="spotlight">
 								<div class="content">
 									<header class="major">
