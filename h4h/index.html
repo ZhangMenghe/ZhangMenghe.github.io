@@ -18,8 +18,8 @@
 
 				<!-- Header -->
                 <header id="header" class="alt">
-                    <h1>Human-Centered Computing for Health Final Project </h1>
-                    <p>Augmented Reality Assisted Laparoscopic Surgery with Magnetic Resonance Imaging (MRI)</p>
+                    <h1>H4H Final Project </h1>
+                    <p>Augmented Reality Assisted Laparoscopic Surgery with Magnetic Resonance Imaging(MRI) and Ultrasound</p>
                 </header>
 				<!-- Nav -->
 				<nav id="nav">
@@ -165,18 +165,32 @@
 						
 						<!-- Software -->
 						<section id="Software" class = "main special">
-							<div class="spotlight">
-								<div class="content">
-									<header class="major">
-										<h2>Software</h2>
-										<p>The most basic component is to superimpose the rendered MRI data to the real-time laparoscopic video. To achieve this, we need to firstly preprocess the MRI images and then figure out the approaches of registration and tracking.</p>
-										<ul>
-											<li><b>Registration:</b>vision-based approaches are promising. Recent works first annotate or estimate the correspondence of natural or artificial landmarks between the preoperative data and the laparoscopic image, then optimize the results with surface or volume constraint. </li>
-											<li><b>Tracking:</b> optical tracking and electromagnetic tracking</li>
-                                    	</ul>
-									</header>
-						</section>
+							<header class="major">
+								<h2>Software</h2>
+							</header>
+							<div class="align-left">
+								<p>The most basic component is to superimpose the rendered MRI data to the real-time laparoscopic video. To achieve this, we need to firstly preprocess the MRI images and then figure out the approaches of registration and tracking.</p>
 
+								<h3>&#10697; Preoperative Stage </h3>
+								<p>MRI preprocessing is based on the request from surgeons. However, there are some common techniques that can be applied.</p>
+								<ul>
+									<li><b>Volume Rendering: </b>visualizes all the data. Different transfer functions can be applied to distinguish some structures that are hard to tell otherwise.</li>
+									<li><b>Instance Segmentation: </b>segment different organs, tissues with help of machine learning.</li>
+								</ul>
+								<div class="image_center_full">
+									<img src="images/simens-mri.png" alt="" style="width:90%"/>
+								</div>
+								<h3>&#10697; Intraoperative Stage </h3>
+								<p>Most of laparoscopic AR approaches should be composed of two distinct parts: an initial static registration of the augmentation to the scene and a tracking procedure to maintain its accuracy in presence of motions, deformations and occclusions.</p>
+								<ul>
+									<li><b>Registration:</b> our solution proposes to mount the EM sensors on the 3-D laparoscope and the LUS probe. To be specific, the EM tracker is attached to the device at the handle. Later, a calibration and jitter correction is used to get the position of those devices.</li>
+									<li><b>Tracking:</b> to overlay the pre-operative MRI on to the real-time video, an automatic ultrasound-MRI registration is used  </li>
+									<div class="image_center_full">
+										<img src="images/lus-mri.jpg" alt="" style="width:90%"/>
+									</div>
+								</ul>
+							</div>
+						</section>
 						<!-- Video -->
 
 						<section id="Video" class = "main special">
